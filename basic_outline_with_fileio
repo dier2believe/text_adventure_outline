@@ -1,6 +1,3 @@
-# This file is the same as the basic outline except it includes file io
-# The file io takes in the map information to make map changes easier
-
 import random
 import sys
 import os
@@ -25,11 +22,20 @@ class Room:
         return self.__directions[direction]
 
 def main():
-    mapFile = open("mapOutline.txt")
+    mapFile = "none"
+    print("Available Maps")
+    print("0. Basic Map")
+    print("1. Space Adventure")
+    num = input("Which map would you like to play? ")
+    num = int(num[0])
+    if num == 0:
+        mapFile = open("mapOutline.txt")
+    elif num == 1:
+        mapFile = open("mapOutline1.txt")
+    print("\n")
+    
     line = mapFile.readline()
     GRID_SIZE = int(line[0])
-    print(GRID_SIZE)
-    print("\n\n")
     
     TOT_GRID_SIZE = GRID_SIZE * GRID_SIZE
     

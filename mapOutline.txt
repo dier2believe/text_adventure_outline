@@ -1,0 +1,56 @@
+3
+top left
+no
+yes
+no
+yes
+You are in the top left room
+top center
+no
+yes
+yes
+yes
+You are in the top center room
+top right
+no
+yes
+yes
+no
+You are in the top right room
+middle left
+yes
+yes
+no
+yes
+You are in the middle left room
+middle center
+yes
+yes
+yes
+yes
+You are in the middle center room
+middle right
+yes
+yes
+yes
+no
+You are in the middle right room
+bottom left
+yes
+no
+no
+yes
+You are in the bottom left room
+bottom center
+yes
+no
+yes
+yes
+You are in the bottom center room
+bottom right
+yes
+no
+yes
+no
+You are in the bottom right room
+4

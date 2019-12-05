@@ -1,0 +1,31 @@
+5
+Spaceship Bedroom
+no
+yes
+no
+no
+You are in this room currently.
+Spaceship Kitchen
+no
+yes
+no
+yes
+You are in this room currently.
+Spaceship Dining Room
+no
+no
+yes
+no
+You are in this room currently.
+Planet 1
+no
+yes
+no
+no
+You are in this room currently.
+Planet 2 Bedroom
+no
+yes
+no
+no
+You are in this room currently.

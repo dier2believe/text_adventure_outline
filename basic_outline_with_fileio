@@ -1,0 +1,96 @@
+# This file is the same as the basic outline except it includes file io
+# The file io takes in the map information to make map changes easier
+
+import random
+import sys
+import os
+
+class Room:
+    __name = ""
+    __directions = ["", "", "", ""]
+    __text = ""
+    
+    def setValues(self, name, dir1, dir2, dir3, dir4, text):
+        self.__name = name
+        self.__directions = [dir1, dir2, dir3, dir4]
+        self.__text = text
+    
+    def getName(self):
+        return self.__name
+    
+    def getText(self):
+        return self.__text
+    
+    def getDir(self, direction):
+        return self.__directions[direction]
+
+def main():
+    mapFile = open("mapOutline.txt")
+    line = mapFile.readline()
+    GRID_SIZE = int(line[0])
+    print(GRID_SIZE)
+    print("\n\n")
+    
+    TOT_GRID_SIZE = GRID_SIZE * GRID_SIZE
+    
+    rooms = []
+    for i in range(TOT_GRID_SIZE):
+        rooms.append(Room())
+        fileName = mapFile.readline().replace("\n", "")
+        fileDir1 = mapFile.readline().replace("\n", "")
+        fileDir2 = mapFile.readline().replace("\n", "")
+        fileDir3 = mapFile.readline().replace("\n", "")
+        fileDir4 = mapFile.readline().replace("\n", "")
+        fileText = mapFile.readline().replace("\n", "")
+        rooms[i].setValues(fileName, fileDir1, fileDir2, fileDir3, fileDir4, fileText)
+    
+    line = mapFile.readline()
+    current = int(line[0])
+    mapFile.close()
+    
+    done = 0
+    print("To move (l)eft, (r)ight, (u)p, (d)own, (q)uit\n")
+    while (not(done)):
+        print("    ****", rooms[current].getName(), "****    ")
+        print(rooms[current].getText())
+        print("-----------------------------------")
+        c = input("Which direction do you want to go? ")
+        if c == 'u':
+            result = rooms[current].getDir(0);
+            if result == 'yes':
+                current -= GRID_SIZE
+            else:
+                print("\nYou can't go that way.")
+        elif c == 'd':
+            result = rooms[current].getDir(1);
+            if result == 'yes':
+                current += GRID_SIZE
+            else:
+                print("\nYou can't go that way.")
+        elif c == 'l':
+            result = rooms[current].getDir(2);
+            if result == 'yes':
+                current -= 1
+            else:
+                print("\nYou can't go that way.")
+        elif c == 'r':
+            result = rooms[current].getDir(3);
+            if result == 'yes':
+                current += 1
+            else:
+                print("\nYou can't go that way.")
+        elif c == 'q':
+            print("\nGoodbye")
+            done += 1
+        else:
+            print("That was not a valid input. Try again.")
+        print("\n")
+
+
+main()
+    
+    
+    
+    
+    
+    

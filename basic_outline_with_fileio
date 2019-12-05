@@ -3,23 +3,38 @@ import sys
 import os
 
 class Room:
-    __name = ""
-    __directions = ["", "", "", ""]
-    __text = ""
+    name = ""
+    directions = ["", "", "", ""]
+    text = ""
     
     def setValues(self, name, dir1, dir2, dir3, dir4, text):
-        self.__name = name
-        self.__directions = [dir1, dir2, dir3, dir4]
-        self.__text = text
+        self.name = name
+        self.directions = [dir1, dir2, dir3, dir4]
+        self.text = text
     
     def getName(self):
-        return self.__name
+        return self.name
     
     def getText(self):
-        return self.__text
+        return self.text
     
     def getDir(self, direction):
-        return self.__directions[direction]
+        return self.directions[direction]
+
+
+def findRoomIndex(rooms, roomName):
+    i = 0
+    print("\n\n")
+    print("roomName: ", roomName)
+    print("rooms get name: ", rooms[i].getName())
+    print("\n\n")
+    #while (roomName != rooms[i].getName):
+    #    
+    #    i += 1
+    for i in rooms:
+        print(rooms[i].getName())
+    #return i
+
 
 def main():
     mapFile = "none"
@@ -63,8 +78,9 @@ def main():
         c = input("Which direction do you want to go? ")
         if c == 'u':
             result = rooms[current].getDir(0);
-            if result == 'yes':
-                current -= GRID_SIZE
+            if result != 'no':
+                current = findRoomIndex(rooms, result)
+                #current -= GRID_SIZE
             else:
                 print("\nYou can't go that way.")
         elif c == 'd':
